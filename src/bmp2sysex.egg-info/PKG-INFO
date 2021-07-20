@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: bmp2sysex
+Version: 0.0.1
+Summary: A small package to convert 1-bit 16x16 bitmap images to SysEx messages
+Home-page: https://github.com/chigozienri/bmp2sysex
+Author: Chigozie Nri
+Author-email: chigozie@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/chigozienri/bmp2sysex/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# bmp2sysex
+
+This package is used to convert 1-bit 16x16 bitmap images (e.g. in bmp or png format) to SysEx messages.
+
+Usage
+-----
+bmp2sysex.py [-h] [-w WHITE1] path
+
+Convert bitmap to SysEx
+
+positional arguments:
+  path                  path to bitmap image
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -w WHITE1, --white1 WHITE1
+                        Interpret 1 as white
+
+

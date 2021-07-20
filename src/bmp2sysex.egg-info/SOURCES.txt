@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/bmp2sysex/__init__.py
+src/bmp2sysex/__main__.py
+src/bmp2sysex.egg-info/PKG-INFO
+src/bmp2sysex.egg-info/SOURCES.txt
+src/bmp2sysex.egg-info/dependency_links.txt
+src/bmp2sysex.egg-info/entry_points.txt
+src/bmp2sysex.egg-info/requires.txt
+src/bmp2sysex.egg-info/top_level.txt

@@ -1,0 +1,3 @@
+[console_scripts]
+bmp2sysex = bmp2sysex.__main__:main
+
