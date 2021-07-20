@@ -1,8 +1,9 @@
-from bmp2sysex.bmp2sysex import main
+from bmp2sysex.__main__ import main
 from unittest import TestCase
 import numpy as np
 from PIL import Image
 import tempfile
+import warnings
 
 class TestMain(TestCase):
 
@@ -31,9 +32,12 @@ class TestMain(TestCase):
             im = Image.fromarray(arr)
             im.mode = "L"
             im.save(tmp.name)
-            with self.assertRaises(RuntimeError) as err:
+            with warnings.catch_warnings(record=True) as warning_list:
                 main(tmp.name)
-            self.assertIn('Only 1-bit images are supported', str(err.exception))
+            self.assertIn(
+                'Only 1-bit images are supported. Will convert to 1-bit',
+                [str(warning.message) for warning in warning_list]
+            )
 
     def test_8x8_1bit_png(self):
         expected = '1010100000000001101010000000000011101000000000011010100000000000'

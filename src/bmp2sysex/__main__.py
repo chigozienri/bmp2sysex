@@ -3,12 +3,13 @@ from PIL import Image
 import numpy as np
 import sys
 import argparse 
+import warnings
 
 def main(path, white1=False):
     im = Image.open(path)
     if im.mode != '1':
-        im.close()
-        raise RuntimeError('Only 1-bit images are supported')
+        warnings.warn('Only 1-bit images are supported. Will convert to 1-bit')
+    im = im.convert('1')
     if im.size != (16, 16):
         im.close()
         raise RuntimeError('Only 16x16 images are supported')
