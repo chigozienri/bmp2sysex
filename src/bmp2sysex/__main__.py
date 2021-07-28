@@ -18,8 +18,6 @@ def main(path, white1=False):
     # White is 0, black is 1 => invert compared to PIL default
     if not white1:
         arr = 1 - arr
-        print('HI')
-    print("".join(arr.flatten().astype("str").tolist()))
     
     # SYSEX Constant Bytes
     exclusiveStatus = 0xF0
