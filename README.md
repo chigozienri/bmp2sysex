@@ -1,6 +1,12 @@
 # bmp2sysex
 
-This package is used to convert 1-bit 16x16 bitmap images (e.g. in bmp or png format) to SysEx messages.
+This package is used to convert 1-bit 16x16 bitmap images (e.g. in bmp or png
+format) to Roland Sound Canvas Dot Display SYSEX messages.
+
+This has been tested on the following Roland Sound Canvas models:
+* SC-55
+* SC-55mkII
+* SC-88
 
 Installation
 ------------
@@ -16,7 +22,7 @@ Usage
 ```
 python -m bmp2sysex [-h] [-w WHITE1] path
 
-Convert bitmap to SysEx
+Convert bitmap to SYSEX
 
 positional arguments:
   path                  path to bitmap image
