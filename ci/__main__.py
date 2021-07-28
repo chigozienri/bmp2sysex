@@ -41,6 +41,7 @@ def flake8():
         click.echo(cproc.stderr)
         raise click.ClickException("Failed flake8")
 
+
 @cli.command(name="isort", help="Run isort")
 def black():
     """ Run isort on the codebase"""
@@ -52,8 +53,9 @@ def black():
         click.echo(cproc.stderr)
         raise click.ClickException("Failed isort")
 
+
 @cli.command(name="flake8", help="Run flake8")
-def flake8():
+def isort():
     """ Run flake8 on the codebase"""
     cmd = ["python", "-m", "flake8", "."]
     cproc = subprocess.run(cmd)
@@ -62,6 +64,7 @@ def flake8():
         click.echo(cproc.stdout)
         click.echo(cproc.stderr)
         raise click.ClickException("Failed flake8")
+
 
 if __name__ == "__main__":
     cli(prog_name="python -m ci")
