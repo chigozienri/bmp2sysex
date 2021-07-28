@@ -80,16 +80,14 @@ def main(path, white1=False):
     outputList.append(EOX)
 
     # Generate string
-    string = ""
-    for i in outputList:
-        string = string + format(i, "02X") + " "
-    string = string[:-1]
-
-    return string
+    bytes = [format(b, '02X') for b in outputList]
+    return " ".join(bytes)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert bitmap to SysEx")
+    parser = argparse.ArgumentParser(
+        description="Convert bitmap to Roland Sound Canvas Dot Display SYSEX message"
+    )
     parser.add_argument("path", type=str, help="path to bitmap image")
     parser.add_argument(
         "-w", "--white1", help="Interpret 1 as white", action="store_true"
