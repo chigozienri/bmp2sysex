@@ -18,6 +18,8 @@ def main(path, white1=False):
     # White is 0, black is 1 => invert compared to PIL default
     if not white1:
         arr = 1 - arr
+        print('HI')
+    print("".join(arr.flatten().astype("str").tolist()))
     
     # SYSEX Constant Bytes
     exclusiveStatus = 0xF0
@@ -83,6 +85,6 @@ def main(path, white1=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert bitmap to SysEx")
     parser.add_argument("path", type=str, help="path to bitmap image")
-    parser.add_argument("-w", "--white1", help="Interpret 1 as white")
+    parser.add_argument("-w", "--white1", help="Interpret 1 as white", action='store_true')
     args = parser.parse_args()
     print(main(args.path, white1=args.white1))
