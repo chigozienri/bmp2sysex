@@ -18,7 +18,7 @@ def main(path, white1=False):
     # White is 0, black is 1 => invert compared to PIL default
     if not white1:
         arr = 1 - arr
-    
+
     # SYSEX Constant Bytes
     exclusiveStatus = 0xF0
     manufacturerID = 0x41
@@ -35,13 +35,21 @@ def main(path, white1=False):
     runningSum = address1 + address2 + address3
 
     # Init outputList
-    outputList = [exclusiveStatus, manufacturerID, deviceID, modelID, commandID,
-                  address1, address2, address3]
+    outputList = [
+        exclusiveStatus,
+        manufacturerID,
+        deviceID,
+        modelID,
+        commandID,
+        address1,
+        address2,
+        address3,
+    ]
     # Init Loop
     z = 0
 
     byte = 0
-    
+
     # Loop through array and convert into SYSEX Bytes
     while z < 4:
         y = 0
@@ -65,17 +73,17 @@ def main(path, white1=False):
         z += 1
 
     # Generate checksum
-    checksum = (128 - (runningSum % 128))
+    checksum = 128 - (runningSum % 128)
 
     # Append checksum & EOX
     outputList.append(checksum)
     outputList.append(EOX)
 
     # Generate string
-    string = ''
+    string = ""
     for i in outputList:
-        string = string + format(i, '02X') + ' '
-    string = string [:-1]
+        string = string + format(i, "02X") + " "
+    string = string[:-1]
 
     return string
 
@@ -83,6 +91,8 @@ def main(path, white1=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert bitmap to SysEx")
     parser.add_argument("path", type=str, help="path to bitmap image")
-    parser.add_argument("-w", "--white1", help="Interpret 1 as white", action='store_true')
+    parser.add_argument(
+        "-w", "--white1", help="Interpret 1 as white", action="store_true"
+    )
     args = parser.parse_args()
     print(main(args.path, white1=args.white1))
